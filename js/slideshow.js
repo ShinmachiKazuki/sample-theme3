@@ -1,4 +1,5 @@
-$(function () {
+(function($) {
+	$(function () {
 	var now_id,next_id,max_image,imageArray,target;
 
 	target = '#pickup_field ul li';
@@ -34,3 +35,4 @@ $(function () {
 		setInterval(changeImage, 4000);
 	}
 });
+})(jQuery);

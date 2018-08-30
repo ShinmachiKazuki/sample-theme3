@@ -25,7 +25,9 @@ function theme_styles () {
  wp_enqueue_style( 'theme_common',     get_template_directory_uri() . '/css/common.css' );
  wp_enqueue_style( 'theme_styles',     get_stylesheet_uri() );
  //wp_enqueue_style( 'theme_responsive', get_template_directory_uri() . '/css/responsive.css' );
+ wp_enqueue_script( 'theme-move-script', get_template_directory_uri() . '/js/slideshow.js', array( 'jquery' ), '1.0.0', true );
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 function theme_widgets_init() {
@@ -40,4 +42,18 @@ function theme_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'theme_widgets_init' );
-?>
+
+function the_search_extend( $text ) {
+	if ( is_search() ) {
+		$query = trim( get_search_query() );
+		$query = mb_convert_kana( $query, 'as', 'UTF-8' );
+
+	if( !empty( $query ) ){
+		$text = str_replace( $query, '<mark>' . $query . '</mark>', $text );
+	}
+}
+	return $text;
+}
+
+add_action( 'the_excerpt', 'the_search_extend' );
+add_action( 'the_title',   'the_search_extend' );
