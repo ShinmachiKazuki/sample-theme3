@@ -22,19 +22,15 @@
 				echo $format;
 			}
 				?>
-
 			</a>
 		</h1>
-	</header>
-	<?php if ( has_nav_menu( 'global' ) ) : ?>
-			<nav class="nav-global">
-				<?php
-				$args = array(
-					'container'      => '',
-					'theme_location' => 'global',
-					'items_wrap' => '<ul>%3$s</ul>'
-				);
-				wp_nav_menu( $args );
-				?>
-			</nav>
-		<?php endif;
+
+	<nav>
+		<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'global'
+				)
+			);
+		?>
+	</nav>
