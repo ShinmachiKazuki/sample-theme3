@@ -121,7 +121,7 @@ main h2 {
 	font-weight: bold;
 	text-indent: 0;
 }
-sec_field p:last-child {
+.sec_field p:last-child {
 	margin-bottom: 0;
 }
 .pic_left {

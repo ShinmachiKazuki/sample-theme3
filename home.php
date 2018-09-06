@@ -27,6 +27,12 @@
 					query_posts($args);
 					while( have_posts() ): the_post();
 				?>
+				<li>
+					<time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></time>
+					<a href="<?php the_permalink(); ?>">
+						<?php the_title(); ?>
+					</a>
+				</li>
 			<?php endwhile; ?>
 			</ul>
 		</section>
