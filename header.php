@@ -25,7 +25,7 @@
 			</a>
 		</h1>
 
-	<nav>
+	<nav class="nav-global">
 		<?php
 			wp_nav_menu(
 				array(
